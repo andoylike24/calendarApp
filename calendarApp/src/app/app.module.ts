@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { CalendarAllComponent } from './calendar/calendar-all/calendar-all.component';
 import { CalendarNewComponent } from './calendar/calendar-new/calendar-new.component';
 import { CalendarDetailsComponent } from './calendar/calendar-details/calendar-details.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { CalendarDetailsComponent } from './calendar/calendar-details/calendar-d
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
