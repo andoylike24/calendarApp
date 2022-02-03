@@ -4,3 +4,9 @@ export interface calendarDetail {
     date: string;
     status:string;
 }
+
+export interface RouteViewParams {
+  isRoute: boolean;
+  tag: string;
+  data: any;
+}

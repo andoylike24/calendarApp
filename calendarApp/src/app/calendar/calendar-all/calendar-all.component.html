@@ -1,1 +1,36 @@
-<p>calendar-all works!</p>
+<div class="row">
+  <div class="col-12">
+    <div class="row">
+      <div class="col-0 col-md-2">&nbsp;</div>
+      <div class="col-8 col-md-8 text-center">
+        <h5>Calendar App</h5>
+      </div>
+      <div class="col-4 col-md-2">
+        <button class="btn btn-primary btn-block">Filter</button>
+      </div>
+    </div>
+  </div>
+  <div class="col-12 h-m-300">
+    <div class="row">
+      <div class="col-12 pad-10 br-r-3" *ngFor="let i of calendarList" (click)="getDetail(i)">
+        <div class="w-100 bg-gray pad-5">
+          <div class="w-100">
+            <h4 class="text-uppercase">{{ i.title}}</h4>
+          </div>
+          <div class="w-100">
+            <span>{{ i.status}}</span>
+            <span class="float-right">{{ i.date | date}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-12">
+    <div class="row">
+      <div class="col-8 col-md-10">&nbsp;</div>
+      <div class="col-4 col-md-2">
+        <button class="btn btn-success btn-block" (click)="addNew()">Add</button>
+      </div>
+    </div>
+  </div>
+</div>

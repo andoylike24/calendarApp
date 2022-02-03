@@ -1,0 +1,14 @@
+<div class="container container-wrapp mar-top-p-5">
+    <div class="row" [ngSwitch]="routeView">
+        <div class="col-12 pad-tb-10" *ngSwitchCase="'all'">
+            <app-calendar-all></app-calendar-all>
+        </div>
+        <div class="col-12 pad-tb-10" *ngSwitchCase="'new'">
+            <app-calendar-new></app-calendar-new>
+        </div>
+        <div class="col-12  pad-tb-10" *ngSwitchCase="'detail'">
+            <app-calendar-details [calendarDetail]="calendarDetail"></app-calendar-details>
+        </div>
+    </div>
+
+</div>

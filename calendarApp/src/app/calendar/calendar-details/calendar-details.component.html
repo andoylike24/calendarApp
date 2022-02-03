@@ -1,1 +1,60 @@
-<p>calendar-details works!</p>
+<div class="row">
+  <div class="col-12">
+    <div class="row">
+      <div class="col-3 col-md-2">
+        <button class="btn btn-primary btn-block" (click)="backHome()">Back</button>
+      </div>
+      <div class="col-6 col-md-8 text-center">
+        <h5 class="text-uppercase">{{ title}}</h5>
+      </div>
+      <div class="col-3 col-md-2">
+        &nbsp;
+      </div>
+    </div>
+  </div>
+
+  <div class="col-12 h-m-300">
+    <div class="w-100 pad-15">
+      <form [formGroup]="registerCalendarDetailForm">
+        <div class="form-group row">
+          <div class="col-md-12">
+            <input [ngClass]="{ 'is-invalid': submitted && f.title.errors }" type="text" formControlName="title" name="title" class="form-control" placeholder="Input Calendar Event">
+            <div *ngIf="submitted && f.title.errors">
+              <span *ngIf="f.title.errors.required" class="fc-red fs-12">Calendar Event required</span>
+              <span *ngIf="f.title.errors.minlength">Password must be at least 6 characters</span>
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-md-12">
+            <input type="date" formControlName="date" name="date" class="form-control">
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-md-12">
+            <select class="form-control" formControlName="status" name="status">
+              <option value="pending">Pending</option>
+              <option value="ongoing">On going</option>
+              <option value="done">Done</option>
+            </select>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="col-12">
+    <div class="row">
+      <div class="col-4 col-md-2">
+        <button class="btn btn-danger btn-block" (click)="deleteDetail()">Delete</button>
+      </div>
+      <div class="col-4 col-md-8 text">
+        &nbsp;
+      </div>
+      <div class="col-4 col-md-2">
+        <button class="btn btn-primary btn-block" (click)="onUpdateCalendarDetail()">Update</button>
+      </div>
+    </div>
+  </div>
+</div>
+

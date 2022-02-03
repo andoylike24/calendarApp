@@ -8,19 +8,37 @@ import { CalendarNewComponent } from './calendar/calendar-new/calendar-new.compo
 import { CalendarDetailsComponent } from './calendar/calendar-details/calendar-details.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
+
+//services
+import { CalendarService } from './services/calendar.service';
+import { HomeComponent } from './home/home/home.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     CalendarAllComponent,
     CalendarNewComponent,
-    CalendarDetailsComponent
+    CalendarDetailsComponent,
+    HomeComponent
   ],
   imports: [
+    FormsModule,
+    ReactiveFormsModule,
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    HttpClientModule,
+    RouterModule.forRoot([
+      { path: '', component: HomeComponent, pathMatch: 'full' },
+
+    ]),
   ],
-  providers: [],
+  providers: [
+    CalendarService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
