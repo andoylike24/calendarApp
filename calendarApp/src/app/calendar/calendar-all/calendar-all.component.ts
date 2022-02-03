@@ -11,6 +11,8 @@ import { calendarDetail } from 'src/app/models/calendar';
 export class CalendarAllComponent implements OnInit {
 
   calendarList: calendarDetail[] = [];
+  calendarTitle: string;
+  isSearch: boolean;
 
   constructor(
     private http: HttpClient,
@@ -22,11 +24,11 @@ export class CalendarAllComponent implements OnInit {
   }
 
   //get all calendars list
-  initGetAllCalendar(){
+  initGetAllCalendar() {
     this.calendarService.getAllCalendarDetails().subscribe(
-      res=>{
+      res => {
         this.calendarList = res;
-      },error=>{
+      }, error => {
         console.log(error);
       }
     );
@@ -36,24 +38,32 @@ export class CalendarAllComponent implements OnInit {
     this.calendarService.routeView({ isRoute: true, tag: "detail", data: i });
   }
   addNew() {
-    this.calendarService.routeView({ isRoute: true, tag:"new",data:null});
+    this.calendarService.routeView({ isRoute: true, tag: "new", data: null });
   }
 
-  newData(){
-    let d:calendarDetail = {
-      id:3,
-      title:"yes",
+  newData() {
+    let d: calendarDetail = {
+      id: 3,
+      title: "yes",
       date: "2012-04-23T18:25:43.511Z",
       status: "pending"
     }
 
     this.calendarService.newCalendarDetail(d).subscribe(
-      res=>{
+      res => {
         console.log(res);
-      },error=>{
+      }, error => {
         console.log(error);
       }
     );
   }
 
+  showFilter() {
+    this.isSearch = true;
+    
+  }
+  hideFilter() {
+    this.isSearch = false;
+    this.calendarTitle ="";
+  }
 }

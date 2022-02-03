@@ -8,6 +8,8 @@ import { CalendarNewComponent } from './calendar/calendar-new/calendar-new.compo
 import { CalendarDetailsComponent } from './calendar/calendar-details/calendar-details.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
@@ -28,6 +30,7 @@ import { HomeComponent } from './home/home/home.component';
     FormsModule,
     ReactiveFormsModule,
     BrowserModule,
+    Ng2SearchPipeModule,
     AppRoutingModule,
     NgbModule,
     HttpClientModule,

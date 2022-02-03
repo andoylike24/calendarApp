@@ -1,18 +1,30 @@
 <div class="row">
+
   <div class="col-12">
-    <div class="row">
+
+    <div class="row" *ngIf="isSearch">
+      <div class="col-4 col-md-2">
+        <button class="btn btn-primary btn-block" (click)="hideFilter()">Back</button>
+      </div>
+      <div class="col-8 col-md-10 text-center">
+        <input type="text" class="form-control" placeholder="Search Calendar Evenet" [(ngModel)]="calendarTitle">
+      </div>
+    </div>
+
+    <div class="row" *ngIf="!isSearch">
       <div class="col-0 col-md-2">&nbsp;</div>
       <div class="col-8 col-md-8 text-center">
         <h5>Calendar App</h5>
       </div>
       <div class="col-4 col-md-2">
-        <button class="btn btn-primary btn-block">Filter</button>
+        <button class="btn btn-primary btn-block" (click)="showFilter()">Filter</button>
       </div>
     </div>
   </div>
+
   <div class="col-12 h-m-300">
     <div class="row">
-      <div class="col-12 pad-10 br-r-3" *ngFor="let i of calendarList" (click)="getDetail(i)">
+      <div class="col-12 pad-10 br-r-3" *ngFor="let i of calendarList | filter:calendarTitle" (click)="getDetail(i)">
         <div class="w-100 bg-gray pad-5">
           <div class="w-100">
             <h4 class="text-uppercase">{{ i.title}}</h4>
